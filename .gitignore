@@ -1,0 +1,18 @@
+node_modules/
+dist/
+
+# Pacotes locais gerados para envio manual
+*.zip
+
+# Arquivos de producao 3D e diagnosticos que nao fazem parte do site
+assets/models/sewing-machine/edited/
+assets/models/sewing-machine/sewing-machine-front-cover.glb
+assets/models/sewing-machine/sewing-machine-updated.glb
+tools/
+
+# Arquivos locais do sistema e dos editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

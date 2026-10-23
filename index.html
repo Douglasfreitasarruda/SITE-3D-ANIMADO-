@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080a0d" />
+    <meta
+      name="description"
+      content="Visualização interativa em 3D de uma máquina de costura industrial."
+    />
+    <title>Máquina de costura em 3D</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="machine-showcase" aria-labelledby="machine-title">
+        <div class="machine-showcase__glow" aria-hidden="true"></div>
+        <div class="machine-showcase__particles" aria-hidden="true"></div>
+
+        <div class="machine-showcase__content">
+          <div class="machine-showcase__heading">
+            <p class="machine-showcase__eyebrow">Precisão em cada detalhe</p>
+            <h1 id="machine-title">Explore a máquina em 3D</h1>
+            <p>Arraste para girar e aproxime para observar os acabamentos.</p>
+          </div>
+
+          <div class="machine-showcase__viewer-wrap">
+            <div class="machine-showcase__orbit" aria-hidden="true"></div>
+            <model-viewer
+              id="machine-model"
+              src="./assets/models/sewing-machine/sewing-machine-web-draco.glb"
+              alt="Máquina de costura industrial em 3D"
+              camera-controls
+              auto-rotate
+              rotation-per-second="8deg"
+              camera-orbit="0deg 75deg 70%"
+              min-camera-orbit="auto auto 62%"
+              max-camera-orbit="auto auto 125%"
+              min-field-of-view="25deg"
+              max-field-of-view="45deg"
+              shadow-intensity="1.2"
+              shadow-softness="0.8"
+              exposure="1"
+              environment-image="neutral"
+              interaction-prompt="none"
+              loading="lazy"
+              reveal="auto"
+              touch-action="pan-y"
+            >
+              <div class="model-loading" slot="poster" aria-live="polite">
+                <span class="model-loading__spinner" aria-hidden="true"></span>
+                <span>Carregando modelo 3D…</span>
+              </div>
+
+              <div
+                class="model-progress"
+                slot="progress-bar"
+                role="progressbar"
+                aria-label="Carregamento do modelo 3D"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+              >
+                <span class="model-progress__bar"></span>
+              </div>
+            </model-viewer>
+
+            <p class="webgl-message" role="status" hidden>
+              Seu navegador não oferece suporte a WebGL. Atualize-o ou use outro
+              dispositivo para visualizar o modelo 3D.
+            </p>
+          </div>
+
+          <p class="machine-showcase__hint" aria-hidden="true">
+            <span class="machine-showcase__drag-icon"></span>
+            Arraste para explorar
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
